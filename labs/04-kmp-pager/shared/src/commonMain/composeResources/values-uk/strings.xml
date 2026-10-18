@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">CampusTix</string>
+
+    <string name="onboarding_skip">Пропустити</string>
+    <string name="onboarding_next">Далі</string>
+    <string name="onboarding_start">Почати</string>
+    <string name="onboarding_page_indicator">Сторінка %1$d з %2$d</string>
+
+    <string name="onboarding_events_title">Уся афіша кампусу</string>
+    <string name="onboarding_events_text">Концерти, хакатони та гостьові лекції ЧНУ в одному місці.</string>
+    <string name="onboarding_ticket_title">Квиток за хвилину</string>
+    <string name="onboarding_ticket_text">Обери тип квитка, оплати — і ти в списку.</string>
+    <string name="onboarding_qr_title">QR-код на вході</string>
+    <string name="onboarding_qr_text">Покажи QR-код на вході. Жодних паперових квитків.</string>
+    <string name="onboarding_reviews_title">Діліться враженнями</string>
+    <string name="onboarding_reviews_text">Оцінюй події та обговорюй їх з іншими студентами.</string>
+
+    <string name="home_title">Афіша кампусу</string>
+    <string name="home_subtitle">Чернівецький національний університет імені Юрія Федьковича</string>
+    <string name="home_events_placeholder">Незабаром тут з’являться події з API CampusTix.</string>
+
+    <string name="settings_title">Налаштування</string>
+    <string name="settings_theme">Тема</string>
+    <string name="theme_system">Системна</string>
+    <string name="theme_light">Світла</string>
+    <string name="theme_dark">Темна</string>
+    <string name="settings_language_hint">Мова застосунку відповідає мові системи.</string>
+    <string name="settings_show_onboarding">Показати ознайомлення знову</string>
+</resources>

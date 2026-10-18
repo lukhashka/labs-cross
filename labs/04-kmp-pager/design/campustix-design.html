@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CampusTix Design</title>
+<style>
+  @font-face { font-family: Montserrat; font-weight: 400; src: url(../shared/src/commonMain/composeResources/font/montserrat_regular.ttf); }
+  @font-face { font-family: Montserrat; font-weight: 600; src: url(../shared/src/commonMain/composeResources/font/montserrat_semibold.ttf); }
+  @font-face { font-family: Montserrat; font-weight: 700; src: url(../shared/src/commonMain/composeResources/font/montserrat_bold.ttf); }
+
+  :root {
+    --primary: #7A1F2B; --on-primary: #FFFFFF; --primary-container: #FFDADB; --on-primary-container: #5E0F1C;
+    --secondary: #7A5900; --secondary-container: #FFDF9E; --on-secondary-container: #5C4200;
+    --bg: #FFF8F6; --surface: #FFFFFF; --on-bg: #221A1A; --muted: #524344; --outline: #D7C1C2;
+  }
+  .dark {
+    --primary: #FFB3B8; --on-primary: #5E0F1C; --primary-container: #5E0F1C; --on-primary-container: #FFDADB;
+    --secondary: #F1C048; --secondary-container: #5C4200; --on-secondary-container: #FFDF9E;
+    --bg: #1A1112; --surface: #261D1E; --on-bg: #F0DEDE; --muted: #D7C1C2; --outline: #524344;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 40px; background: #ECE6E6; font-family: Montserrat, sans-serif; color: #221A1A; }
+  h1 { font-size: 34px; margin: 0 0 4px; color: #7A1F2B; }
+  h2 { font-size: 20px; margin: 48px 0 16px; }
+  .lead { margin: 0 0 8px; color: #524344; max-width: 900px; line-height: 1.5; }
+  .row { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+
+  /* tokens */
+  .swatch { width: 150px; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .swatch div { height: 72px; }
+  .swatch p { margin: 0; padding: 8px 10px; font-size: 12px; line-height: 1.4; }
+  .type-card { background: #fff; border-radius: 14px; padding: 18px 22px; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .type-card p { margin: 6px 0; }
+
+  /* phone */
+  .shot { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .shot > span { font-size: 13px; font-weight: 600; color: #524344; }
+  .phone { width: 300px; height: 620px; border-radius: 36px; border: 8px solid #1d1d1f; background: var(--bg); color: var(--on-bg);
+           position: relative; overflow: hidden; display: flex; flex-direction: column; }
+  .status { height: 26px; font-size: 11px; display: flex; justify-content: space-between; padding: 6px 18px 0; color: var(--on-bg); opacity: .8; }
+  .screen { flex: 1; display: flex; flex-direction: column; padding: 8px 20px 20px; }
+
+  /* onboarding */
+  .skip { align-self: flex-end; font-size: 13px; font-weight: 600; color: var(--primary); height: 20px; }
+  .illu { width: 150px; height: 150px; border-radius: 50%; background: var(--primary-container); display: grid; place-items: center; margin: 70px auto 30px; }
+  .illu svg { width: 80px; height: 80px; fill: var(--primary); }
+  .ob-title { font-size: 22px; font-weight: 700; text-align: center; margin: 0 0 12px; }
+  .ob-text { font-size: 13px; line-height: 1.5; text-align: center; color: var(--muted); margin: 0 10px; }
+  .dots { display: flex; gap: 6px; justify-content: center; margin: auto 0 18px; }
+  .dots i { width: 8px; height: 8px; border-radius: 4px; background: var(--outline); }
+  .dots i.on { width: 22px; background: var(--primary); }
+  .btn { height: 44px; border-radius: 22px; background: var(--primary); color: var(--on-primary); font-weight: 600; font-size: 14px;
+         display: grid; place-items: center; }
+  .btn.outline { background: transparent; border: 1px solid var(--outline); color: var(--on-bg); }
+
+  /* home */
+  .h-title { font-size: 26px; font-weight: 700; color: var(--primary); margin: 10px 0 2px; }
+  .h-sub { font-size: 11px; color: var(--muted); margin: 0 0 18px; line-height: 1.4; }
+  .note { background: var(--secondary-container); color: var(--on-secondary-container); border-radius: 14px; padding: 14px;
+          display: flex; gap: 12px; align-items: center; font-size: 12px; line-height: 1.4; }
+  .note svg { width: 30px; height: 30px; fill: currentColor; flex: none; }
+  hr { border: 0; border-top: 1px solid var(--outline); margin: 20px 0 16px; width: 100%; }
+  .sec { font-size: 17px; font-weight: 600; margin: 0 0 12px; }
+  .label { font-size: 12px; font-weight: 600; margin: 0 0 8px; }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip { font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--outline); }
+  .chip.on { background: var(--secondary-container); color: var(--on-secondary-container); border-color: transparent; }
+  .hint { font-size: 11px; color: var(--muted); margin: 14px 0 16px; }
+
+  /* future screens */
+  .search { height: 40px; border-radius: 20px; background: var(--surface); border: 1px solid var(--outline); font-size: 12px;
+            color: var(--muted); display: flex; align-items: center; padding: 0 14px; margin-bottom: 10px; }
+  .card { background: var(--surface); border-radius: 16px; overflow: hidden; margin-top: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+  .cover { height: 74px; position: relative; display: flex; align-items: flex-end; padding: 8px; }
+  .cover svg { position: absolute; right: 10px; top: 10px; width: 38px; height: 38px; fill: rgba(255,255,255,.85); }
+  .date { background: var(--surface); color: var(--on-bg); border-radius: 8px; padding: 3px 8px; font-size: 11px; font-weight: 700; }
+  .card-body { padding: 10px 12px 12px; }
+  .card-body b { font-size: 13px; display: block; margin-bottom: 4px; }
+  .meta { font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; }
+  .price { color: var(--primary); font-weight: 700; }
+  .hero { margin: 0 -20px; height: 160px; background: linear-gradient(135deg, #7A1F2B, #C94A57); display: flex; align-items: flex-end; padding: 16px 20px; color: #fff; }
+  .hero b { font-size: 20px; }
+  .info { font-size: 12px; color: var(--muted); margin: 14px 0; line-height: 1.7; }
+  .ticket-type { display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--outline); border-radius: 12px;
+                 padding: 10px 12px; margin-bottom: 8px; font-size: 12px; }
+  .ticket-type.on { border: 2px solid var(--primary); }
+  .ticket-type small { display: block; color: var(--muted); font-size: 10px; margin-top: 2px; }
+  .ticket { background: var(--surface); border-radius: 20px; padding: 18px; margin-top: 10px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+  .qr { width: 170px; height: 170px; margin: 14px auto; display: grid; grid-template-columns: repeat(21, 1fr); background: #fff; padding: 8px; border-radius: 8px; }
+  .qr i { background: #fff; }
+  .qr i.b { background: #221A1A; }
+  .tear { border-top: 2px dashed var(--outline); margin: 14px -18px; }
+  .footer { margin-top: 48px; font-size: 12px; color: #524344; }
+</style>
+</head>
+<body>
+
+<h1>CampusTix — дизайн клієнта</h1>
+<p class="lead">Афіша та квитки на кампусні події ЧНУ. Kotlin Multiplatform + Compose Multiplatform, Material 3.
+Дизайн згенеровано за допомогою ШІ-асистента за промптом: «мобільний застосунок квитків на події українського університету,
+Material 3, фірмові кольори ЧНУ — бордовий і золотий, шрифт Montserrat, онбординг з 4 слайдів з великою круглою ілюстрацією,
+індикатором сторінок і кнопками Пропустити / Далі, світла і темна тема».</p>
+
+<h2>1. Палітра (Material 3 color roles)</h2>
+<div class="row">
+  <div class="swatch"><div style="background:#7A1F2B"></div><p><b>primary</b><br>#7A1F2B · бордовий ЧНУ</p></div>
+  <div class="swatch"><div style="background:#FFDADB"></div><p><b>primaryContainer</b><br>#FFDADB</p></div>
+  <div class="swatch"><div style="background:#7A5900"></div><p><b>secondary</b><br>#7A5900 · золото</p></div>
+  <div class="swatch"><div style="background:#FFDF9E"></div><p><b>secondaryContainer</b><br>#FFDF9E</p></div>
+  <div class="swatch"><div style="background:#FFF8F6"></div><p><b>background</b><br>#FFF8F6</p></div>
+  <div class="swatch"><div style="background:#FFB3B8"></div><p><b>primary (dark)</b><br>#FFB3B8</p></div>
+  <div class="swatch"><div style="background:#F1C048"></div><p><b>secondary (dark)</b><br>#F1C048</p></div>
+  <div class="swatch"><div style="background:#1A1112"></div><p><b>background (dark)</b><br>#1A1112</p></div>
+</div>
+
+<h2>2. Типографіка — Montserrat (SIL OFL, кирилиця)</h2>
+<div class="row">
+  <div class="type-card">
+    <p style="font-size:30px;font-weight:700">Headline · Афіша кампусу</p>
+    <p style="font-size:20px;font-weight:600">Title · Квиток за хвилину</p>
+    <p style="font-size:15px">Body · Концерти, хакатони та гостьові лекції ЧНУ в одному місці.</p>
+    <p style="font-size:13px;font-weight:600">Label · ДАЛІ · ПОЧАТИ · ПРОПУСТИТИ</p>
+  </div>
+</div>
+
+<h2>3. Онбординг (Pager, 4 слайди) — реалізовано в лабі 04</h2>
+<div class="row" id="onboarding"></div>
+
+<h2>4. Головна й налаштування, світла / темна тема — реалізовано в лабі 04</h2>
+<div class="row" id="home"></div>
+
+<h2>5. Наступні екрани (лаби 05+, REST API бекенду .NET)</h2>
+<div class="row" id="future"></div>
+
+<p class="footer">Луханін Богдан, 344Б · Кросплатформне програмування · ЛР 4</p>
+
+<template id="icons">
+  <svg data-name="events" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19,4h-1V2h-2v2H8V2H6v2H5C3.89,4 3,4.9 3,6v14c0,1.1 0.89,2 2,2h14c1.1,0 2,-0.9 2,-2V6C21,4.9 20.1,4 19,4zM19,20H5V10h14V20zM7,12h5v5H7z"/></svg>
+  <svg data-name="ticket" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22,10V6c0,-1.1 -0.9,-2 -2,-2H4C2.9,4 2,4.9 2,6v4c1.1,0 2,0.9 2,2s-0.9,2 -2,2v4c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2v-4c-1.1,0 -2,-0.9 -2,-2S20.9,10 22,10zM15,7h1v2h-1zM15,11h1v2h-1zM15,15h1v2h-1z"/></svg>
+  <svg data-name="qr" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3,3h8v8H3zM5,5v4h4V5zM13,3h8v8h-8zM15,5v4h4V5zM3,13h8v8H3zM5,15v4h4v-4zM13,13h3v3h-3zM18,13h3v3h-3zM16,16h2v2h-2zM13,18h3v3h-3zM18,18h3v3h-3z"/></svg>
+  <svg data-name="reviews" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M20,2H4C2.9,2 2,2.9 2,4v18l4,-4h14c1.1,0 2,-0.9 2,-2V4C22,2.9 21.1,2 20,2zM12,4.5L13.3,7.4L16.4,7.7L14.1,9.8L14.7,12.9L12,11.4L9.3,12.9L9.9,9.8L7.6,7.7L10.7,7.4z"/></svg>
+</template>
+
+<script>
+  const icon = name => document.querySelector(`#icons`).content.querySelector(`[data-name=${name}]`).outerHTML;
+
+  function phone(caption, inner, dark = false) {
+    return `<div class="shot"><div class="phone ${dark ? 'dark' : ''}">
+      <div class="status"><span>9:41</span><span>5G ▮▮▮</span></div>
+      <div class="screen">${inner}</div></div><span>${caption}</span></div>`;
+  }
+
+  const slides = [
+    ['events', 'Уся афіша кампусу', 'Концерти, хакатони та гостьові лекції ЧНУ в одному місці.'],
+    ['ticket', 'Квиток за хвилину', 'Обери тип квитка, оплати — і ти в списку.'],
+    ['qr', 'QR-код на вході', 'Покажи QR-код на вході. Жодних паперових квитків.'],
+    ['reviews', 'Діліться враженнями', 'Оцінюй події та обговорюй їх з іншими студентами.'],
+  ];
+
+  function onboarding(i) {
+    const [ic, title, text] = slides[i];
+    const last = i === slides.length - 1;
+    const dots = slides.map((_, j) => `<i class="${j === i ? 'on' : ''}"></i>`).join('');
+    return `<div class="skip">${last ? '' : 'Пропустити'}</div>
+      <div class="illu">${icon(ic)}</div>
+      <p class="ob-title">${title}</p><p class="ob-text">${text}</p>
+      <div class="dots">${dots}</div><div class="btn">${last ? 'Почати' : 'Далі'}</div>`;
+  }
+
+  function home(mode) {
+    const chips = ['Системна', 'Світла', 'Темна'].map(c => `<span class="chip ${c === mode ? 'on' : ''}">${c}</span>`).join('');
+    return `<p class="h-title">Афіша кампусу</p>
+      <p class="h-sub">Чернівецький національний університет імені Юрія Федьковича</p>
+      <div class="note">${icon('events')}<span>Незабаром тут з’являться події з API CampusTix.</span></div>
+      <hr><p class="sec">Налаштування</p><p class="label">Тема</p><div class="chips">${chips}</div>
+      <p class="hint">Мова застосунку відповідає мові системи.</p>
+      <div class="btn outline">Показати ознайомлення знову</div>`;
+  }
+
+  const events = [
+    ['24 ЖОВ', 'Хакатон ChNU Hack 2026', 'Корпус 2, ауд. 101', 'Безкоштовно', '#7A1F2B,#C94A57', 'events'],
+    ['31 ЖОВ', 'Осінній концерт у Резиденції', 'Мармурова зала', '150 ₴', '#7A5900,#E0A82E', 'reviews'],
+    ['05 ЛИС', 'Гостьова лекція: AI в медицині', 'Центральний корпус', '50 ₴', '#3F4A7A,#6C7BC9', 'ticket'],
+  ];
+
+  function feed() {
+    const chips = ['Усі', 'Концерти', 'IT', 'Лекції'].map((c, i) => `<span class="chip ${i === 0 ? 'on' : ''}">${c}</span>`).join('');
+    const cards = events.map(([d, t, p, price, g, ic]) => `<div class="card">
+        <div class="cover" style="background:linear-gradient(135deg,${g})">${icon(ic)}<span class="date">${d}</span></div>
+        <div class="card-body"><b>${t}</b><div class="meta"><span>${p}</span><span class="price">${price}</span></div></div></div>`).join('');
+    return `<p class="h-title" style="font-size:22px">Афіша</p><div class="search">Пошук подій…</div>
+      <div class="chips">${chips}</div>${cards}`;
+  }
+
+  function details() {
+    return `<div class="hero"><b>Хакатон ChNU Hack 2026</b></div>
+      <div class="info">📅 24 жовтня, 10:00 – 20:00<br>📍 Корпус 2, ауд. 101<br>👥 Залишилось місць: 18</div>
+      <p class="label">Тип квитка</p>
+      <div class="ticket-type on"><span>Учасник<small>команда до 4 осіб</small></span><b>0 ₴</b></div>
+      <div class="ticket-type"><span>Глядач<small>фінал і нагородження</small></span><b>0 ₴</b></div>
+      <div class="btn" style="margin-top:auto">Отримати квиток</div>`;
+  }
+
+  function ticket() {
+    let cells = '', seed = 7;
+    const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+    const finder = (x, y, ox, oy) => {
+      const dx = x - ox, dy = y - oy;
+      if (dx < 0 || dy < 0 || dx > 6 || dy > 6) return null;
+      return dx === 0 || dy === 0 || dx === 6 || dy === 6 || (dx >= 2 && dx <= 4 && dy >= 2 && dy <= 4);
+    };
+    for (let y = 0; y < 21; y++) for (let x = 0; x < 21; x++) {
+      const f = finder(x, y, 0, 0) ?? finder(x, y, 14, 0) ?? finder(x, y, 0, 14);
+      cells += `<i class="${(f ?? rnd() > 0.5) ? 'b' : ''}"></i>`;
+    }
+    return `<p class="h-title" style="font-size:22px">Мій квиток</p>
+      <div class="ticket"><b style="font-size:15px">Хакатон ChNU Hack 2026</b>
+        <div class="info" style="margin:6px 0 0">24 жовтня · 10:00 · Корпус 2</div>
+        <div class="qr">${cells}</div>
+        <div class="tear"></div>
+        <div class="meta"><span>Тип: Учасник</span><span>№ CTX-00342</span></div></div>
+      <p class="hint" style="text-align:center">Покажи цей код на вході</p>`;
+  }
+
+  document.querySelector('#onboarding').innerHTML =
+    slides.map((_, i) => phone(`Слайд ${i + 1}`, onboarding(i))).join('') +
+    phone('Слайд 1 — темна тема', onboarding(0), true);
+  document.querySelector('#home').innerHTML =
+    phone('Головна — світла', home('Світла')) + phone('Головна — темна', home('Темна'), true);
+  document.querySelector('#future').innerHTML =
+    phone('Афіша', feed()) + phone('Сторінка події', details()) + phone('Квиток з QR', ticket()) +
+    phone('Афіша — темна тема', feed(), true);
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">CampusTix</string>
+
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_start">Get started</string>
+    <string name="onboarding_page_indicator">Page %1$d of %2$d</string>
+
+    <string name="onboarding_events_title">All campus events</string>
+    <string name="onboarding_events_text">Concerts, hackathons and guest lectures of ChNU in one place.</string>
+    <string name="onboarding_ticket_title">Ticket in a minute</string>
+    <string name="onboarding_ticket_text">Choose a ticket type, pay, and you are on the list.</string>
+    <string name="onboarding_qr_title">QR code at the entrance</string>
+    <string name="onboarding_qr_text">Show the QR code at the door. No paper tickets.</string>
+    <string name="onboarding_reviews_title">Share your impressions</string>
+    <string name="onboarding_reviews_text">Rate events and discuss them with other students.</string>
+
+    <string name="home_title">Campus events</string>
+    <string name="home_subtitle">Yuriy Fedkovych Chernivtsi National University</string>
+    <string name="home_events_placeholder">Events from the CampusTix API will appear here soon.</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_theme">Theme</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="settings_language_hint">The app language follows your system language.</string>
+    <string name="settings_show_onboarding">Show onboarding again</string>
+</resources>
