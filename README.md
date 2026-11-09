@@ -6,6 +6,8 @@
 |---|---|---|
 | 03 | [labs/03-mvi](labs/03-mvi) | Проєкт лаб 10–15 (REST-клієнт jsonplaceholder), переведений з MVVM на MVI; use cases у domain; `Result.map` у data |
 | 04 | [labs/04-kmp-pager](labs/04-kmp-pager) | CampusTix: новий KMP-проєкт, дизайн ([design/](labs/04-kmp-pager/design)), кастомна тема, Kermit, multiplatform-settings, онбординг на Pager, uk/en |
+| 05 | [labs/05-auth-ui](labs/05-auth-ui) | Navigation 3, екран авторизації за MVI, валідація, дії клавіатури |
+| 06 | [labs/06-auth-networking](labs/06-auth-networking) | Ktor, KSafe, вхід через dummyjson, автоматичне оновлення токенів, домашня сторінка |
 
 Кожна лаба — окремий Gradle-проєкт (Android, Desktop, Web/Wasm). Відкривати в Android Studio саму папку лаби.
 

@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">CampusTix</string>
+
+    <string name="onboarding_skip">Пропустити</string>
+    <string name="onboarding_next">Далі</string>
+    <string name="onboarding_start">Почати</string>
+    <string name="onboarding_page_indicator">Сторінка %1$d з %2$d</string>
+
+    <string name="onboarding_events_title">Уся афіша кампусу</string>
+    <string name="onboarding_events_text">Концерти, хакатони та гостьові лекції ЧНУ в одному місці.</string>
+    <string name="onboarding_ticket_title">Квиток за хвилину</string>
+    <string name="onboarding_ticket_text">Обери тип квитка, оплати — і ти в списку.</string>
+    <string name="onboarding_qr_title">QR-код на вході</string>
+    <string name="onboarding_qr_text">Покажи QR-код на вході. Жодних паперових квитків.</string>
+    <string name="onboarding_reviews_title">Діліться враженнями</string>
+    <string name="onboarding_reviews_text">Оцінюй події та обговорюй їх з іншими студентами.</string>
+
+    <string name="auth_title">Вхід у CampusTix</string>
+    <string name="auth_subtitle">Твої квитки та події кампусу в одному акаунті.</string>
+    <string name="auth_username">Ім’я користувача</string>
+    <string name="auth_password">Пароль</string>
+    <string name="auth_show_password">Показати</string>
+    <string name="auth_hide_password">Сховати</string>
+    <string name="auth_sign_in">Увійти</string>
+    <string name="auth_error_username_empty">Введи ім’я користувача</string>
+    <string name="auth_error_username_short">Ім’я має містити щонайменше 3 символи</string>
+    <string name="auth_error_username_invalid">Дозволено лише літери, цифри та . _ -</string>
+    <string name="auth_error_password_empty">Введи пароль</string>
+    <string name="auth_error_password_short">Пароль має містити щонайменше 6 символів</string>
+
+    <string name="error_unauthorized">Неправильне ім’я користувача або пароль</string>
+    <string name="error_no_internet">Немає зв’язку із сервером. Перевір інтернет.</string>
+    <string name="error_server">Помилка сервера. Спробуй пізніше.</string>
+    <string name="error_unknown">Щось пішло не так. Спробуй ще раз.</string>
+
+    <string name="home_title">Головна</string>
+    <string name="home_greeting">Вітаємо, %1$s!</string>
+    <string name="home_logout">Вийти</string>
+
+    <string name="settings_title">Налаштування</string>
+    <string name="settings_back">Назад</string>
+    <string name="settings_theme">Тема</string>
+    <string name="theme_system">Системна</string>
+    <string name="theme_light">Світла</string>
+    <string name="theme_dark">Темна</string>
+    <string name="settings_language_hint">Мова застосунку відповідає мові системи.</string>
+    <string name="settings_show_onboarding">Показати ознайомлення знову</string>
+</resources>
