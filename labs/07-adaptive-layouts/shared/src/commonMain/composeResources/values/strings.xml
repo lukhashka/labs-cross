@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">CampusTix</string>
+
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_start">Get started</string>
+    <string name="onboarding_page_indicator">Page %1$d of %2$d</string>
+
+    <string name="onboarding_events_title">All campus events</string>
+    <string name="onboarding_events_text">Concerts, hackathons and guest lectures of ChNU in one place.</string>
+    <string name="onboarding_ticket_title">Ticket in a minute</string>
+    <string name="onboarding_ticket_text">Choose a ticket type, pay, and you are on the list.</string>
+    <string name="onboarding_qr_title">QR code at the entrance</string>
+    <string name="onboarding_qr_text">Show the QR code at the door. No paper tickets.</string>
+    <string name="onboarding_reviews_title">Share your impressions</string>
+    <string name="onboarding_reviews_text">Rate events and discuss them with other students.</string>
+
+    <string name="auth_title">Sign in to CampusTix</string>
+    <string name="auth_subtitle">Your tickets and campus events in one account.</string>
+    <string name="auth_username">Username</string>
+    <string name="auth_password">Password</string>
+    <string name="auth_show_password">Show</string>
+    <string name="auth_hide_password">Hide</string>
+    <string name="auth_sign_in">Sign in</string>
+    <string name="auth_error_username_empty">Enter your username</string>
+    <string name="auth_error_username_short">Username must have at least 3 characters</string>
+    <string name="auth_error_username_invalid">Use only letters, digits and . _ -</string>
+    <string name="auth_error_password_empty">Enter your password</string>
+    <string name="auth_error_password_short">Password must have at least 6 characters</string>
+
+    <string name="error_unauthorized">Wrong username or password</string>
+    <string name="error_no_internet">No connection to the server. Check the internet.</string>
+    <string name="error_server">Server error. Try again later.</string>
+    <string name="error_unknown">Something went wrong. Try again.</string>
+
+    <string name="home_title">Home</string>
+    <string name="home_greeting">Welcome, %1$s!</string>
+    <string name="home_logout">Sign out</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_back">Back</string>
+    <string name="settings_theme">Theme</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="settings_language_hint">The app language follows your system language.</string>
+    <string name="settings_show_onboarding">Show onboarding again</string>
+</resources>

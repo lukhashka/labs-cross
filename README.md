@@ -8,6 +8,7 @@
 | 04 | [labs/04-kmp-pager](labs/04-kmp-pager) | CampusTix: новий KMP-проєкт, дизайн ([design/](labs/04-kmp-pager/design)), кастомна тема, Kermit, multiplatform-settings, онбординг на Pager, uk/en |
 | 05 | [labs/05-auth-ui](labs/05-auth-ui) | Navigation 3, екран авторизації за MVI, валідація, дії клавіатури |
 | 06 | [labs/06-auth-networking](labs/06-auth-networking) | Ktor, KSafe, вхід через dummyjson, автоматичне оновлення токенів, домашня сторінка |
+| 07 | [labs/07-adaptive-layouts](labs/07-adaptive-layouts) | Адаптивна розмітка онбордингу та входу за `WindowSizeClass`: одна колонка / дві панелі |
 
 Кожна лаба — окремий Gradle-проєкт (Android, Desktop, Web/Wasm). Відкривати в Android Studio саму папку лаби.
 
